@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ZIRI — Modern Algerian Cuisine. نكهات جزائرية برؤية عصرية.">
+<meta name="theme-color" content="#0b0b0b">
+<title>ZIRI — Modern Algerian Cuisine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+<style>
+:root {
+  --black: #0b0b0b;
+  --black2: #12100f;
+  --ivory: #eee4d2;
+  --muted: #aaa295;
+  --gold: #c9a45a;
+  --gold2: #dfc58e;
+  --terra: #a94f31;
+  --line: rgba(238, 228, 210, 0.13);
+  --max: 1240px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--black);
+  color: var(--ivory);
+  font-family: Cairo, Arial, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  touch-action: manipulation;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.ar {
+  direction: rtl;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 78% 8%, rgba(201, 164, 90, 0.05), transparent 25%),
+    radial-gradient(circle at 8% 72%, rgba(169, 79, 49, 0.035), transparent 25%);
+}
+
+/* Header & Nav */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 0;
+  transition: background 0.35s, padding 0.35s, border-color 0.35s;
+}
+
+header.scrolled {
+  background: rgba(11, 11, 11, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 102;
+}
+
+.header-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-name {
+  font: 600 24px/1 "Playfair Display", serif;
+  letter-spacing: 0.15em;
+}
+
+.logo-sub {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 13px;
+  color: #c9c1b5;
+}
+
+.nav-links a {
+  transition: color 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-cta {
+  border: 1px solid rgba(201, 164, 90, 0.45);
+  padding: 10px 18px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--ivory);
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 102;
+  padding: 5px;
+}
+
+/* Sections Global */
+section {
+  padding: 90px 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-end;
+  margin-bottom: 45px;
+}
+
+.section-title {
+  font: 600 clamp(32px, 5vw, 72px)/0.98 "Playfair Display", serif;
+  word-wrap: break-word;
+}
+
+.section-title span {
+  color: var(--gold);
+}
+
+.section-intro {
+  max-width: 450px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 130px 0 60px;
+  background: 
+    linear-gradient(90deg, rgba(11, 11, 11, 0.96), rgba(11, 11, 11, 0.72) 45%, rgba(11, 11, 11, 0.26)),
+    radial-gradient(circle at 74% 45%, rgba(169, 79, 49, 0.22), transparent 30%),
+    radial-gradient(circle at 67% 44%, rgba(201, 164, 90, 0.10), transparent 18%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: 
+    repeating-linear-gradient(90deg, transparent 0 110px, rgba(238, 228, 210, 0.018) 111px 112px),
+    linear-gradient(120deg, #0b0b0b 0 48%, #241a15 100%);
+}
+
+.hero-content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero h1 {
+  font: 600 clamp(36px, 8.5vw, 115px)/0.82 "Playfair Display", serif;
+  letter-spacing: -.03em;
+  margin: 14px 0 20px 0;
+  word-break: break-word;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+.hero-ar {
+  max-width: 600px;
+  font-size: clamp(16px, 2vw, 24px);
+  line-height: 1.7;
+  color: #d9d0c3;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 26px;
+  border: 1px solid var(--gold);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.25s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn.primary {
+  background: var(--gold);
+  color: #111;
+  font-weight: 600;
+}
+
+.btn.primary:hover {
+  background: var(--gold2);
+}
+
+.btn.ghost {
+  border-color: var(--line);
+}
+
+.btn.ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.hero-meta {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  color: #81796e;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.scroll {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll i {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #6f675e;
+}
+
+/* Statement Section */
+.statement {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.statement-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.statement-big {
+  font: 600 clamp(32px, 4.5vw, 68px)/1 "Playfair Display", serif;
+}
+
+.statement-big span {
+  color: var(--gold);
+}
+
+.statement-text {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.statement-text strong {
+  color: var(--ivory);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.statement-text p + p {
+  margin-top: 12px;
+}
+
+/* Menu Section */
+.menu-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.tab {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: #bdb4a7;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.25s;
+}
+
+.tab.active, .tab:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+}
+
+.menu-item {
+  background: var(--black2);
+  padding: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.25s;
+  min-width: 0;
+}
+
+.menu-item:hover {
+  background: #171310;
+}
+
+.menu-name {
+  font: 500 20px "Playfair Display", serif;
+  word-wrap: break-word;
+}
+
+.menu-desc {
+  font-size: 12px;
+  color: #81796e;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.price {
+  color: var(--gold);
+  font-size: 14px;
+  white-space: nowrap;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Experience Section */
+.experience {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  background: 
+    linear-gradient(90deg, rgba(11, 11, 11, 0.96), rgba(11, 11, 11, 0.60), rgba(11, 11, 11, 0.92)),
+    radial-gradient(circle at 72% 45%, rgba(169, 79, 49, 0.3), transparent 30%),
+    linear-gradient(135deg, #1b1511, #4b2c1e);
+}
+
+.experience-box {
+  max-width: 600px;
+}
+
+.experience-box h2 {
+  font: 600 clamp(36px, 5.5vw, 80px)/0.95 "Playfair Display", serif;
+  margin: 18px 0;
+}
+
+.experience-box p {
+  color: #c3baad;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+/* Gallery Section */
+.gallery {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 0.8fr;
+  grid-template-rows: 240px 240px;
+  gap: 12px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item:nth-child(2) { background: radial-gradient(circle at 30% 45%, rgba(169, 79, 49, 0.22), transparent 18%), linear-gradient(145deg, #1f1713, #0e0e0e); }
+.gallery-item:nth-child(3) { background: radial-gradient(circle at 70% 40%, rgba(201, 164, 90, 0.14), transparent 15%), linear-gradient(145deg, #241e18, #111); }
+.gallery-item:nth-child(4) { background: radial-gradient(circle at 30% 55%, rgba(201, 164, 90, 0.16), transparent 18%), linear-gradient(145deg, #181614, #0c0c0c); }
+.gallery-item:nth-child(5) { background: radial-gradient(circle at 70% 45%, rgba(169, 79, 49, 0.18), transparent 18%), linear-gradient(145deg, #281a15, #0d0d0d); }
+
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(238, 228, 210, 0.05);
+  transition: all 0.45s;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gallery-item:hover::before {
+  inset: 10px;
+  border-color: rgba(201, 164, 90, 0.25);
+}
+
+.gallery-item:nth-child(1) {
+  grid-row: span 2;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-label {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d7ccbd;
+  z-index: 3;
+  background: rgba(11, 11, 11, 0.6);
+  padding: 4px 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* Space Section */
+.space {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.space-visual {
+  height: 420px;
+  background: var(--black);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.space-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.space-copy h2 {
+  font: 600 clamp(34px, 5vw, 68px)/1 "Playfair Display", serif;
+  margin: 18px 0;
+}
+
+.space-copy p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+/* Reservation Section */
+.reservation {
+  background: #12100e;
+}
+
+.reserve-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+}
+
+.reserve-copy h2 {
+  font: 600 clamp(36px, 5vw, 70px)/0.95 "Playfair Display", serif;
+  margin: 18px 0;
+}
+
+.reserve-copy p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 10px;
+  color: #8f877c;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+input, select, textarea {
+  width: 100%;
+  background: #0d0d0d;
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  padding: 14px;
+  outline: none;
+  border-radius: 0;
+  font-size: 16px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-msg {
+  grid-column: 1 / -1;
+  color: var(--gold);
+  font-size: 13px;
+  display: none;
+  margin-top: 10px;
+}
+
+/* Footer */
+footer {
+  padding: 50px 0 30px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-end;
+}
+
+.footer-slogan {
+  font: 600 clamp(28px, 4.5vw, 56px)/1.05 "Playfair Display", serif;
+  max-width: 550px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  color: #8d857a;
+  font-size: 12px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  color: #625c55;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 992px) {
+  section {
+    padding: 75px 0;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 82%;
+    max-width: 360px;
+    height: 100vh;
+    background: #0d0d0d;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px;
+    gap: 22px;
+    border-left: 1px solid var(--line);
+    transition: right 0.35s ease;
+    z-index: 101;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.85);
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .nav-cta {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 35px;
+  }
+
+  .statement-grid,
+  .space,
+  .reserve-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: span 1;
+    height: auto;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .logo {
+    gap: 10px;
+  }
+
+  .header-logo-img {
+    height: 38px;
+  }
+
+  .logo-name {
+    font-size: 20px;
+  }
+
+  .logo-sub {
+    display: none;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    margin-bottom: 4px;
+  }
+
+  .hero {
+    padding: 110px 0 45px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 68px);
+    line-height: 0.85;
+    margin: 10px 0 16px 0;
+  }
+
+  .hero-ar {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-meta {
+    display: none;
+  }
+
+  .menu-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tab {
+    text-align: center;
+    padding: 12px 6px;
+  }
+
+  .menu-item {
+    padding: 18px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-column: 1 / -1;
+    height: auto;
+  }
+
+  .gallery-item:not(:nth-child(1)) {
+    height: 180px;
+  }
+
+  .space-visual {
+    height: 280px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .menu-tabs {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Performance optimizations */
+@media (max-width: 768px) {
+  header.scrolled {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(11, 11, 11, 0.97);
+  }
+
+  .gallery-item::before {
+    transition: none;
+  }
+
+  .reveal {
+    transform: translateY(12px);
+    transition-duration: 0.35s;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .hero::after {
+    background: linear-gradient(120deg, #0b0b0b 0 48%, #241a15 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <img src="logo png.png" alt="ZIRI Logo" class="header-logo-img">
+      <div>
+        <div class="logo-name">ZIRI</div>
+        <div class="logo-sub">MODERN ALGERIAN CUISINE</div>
+      </div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#story">Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#experience">Experience</a>
+      <a href="#space">The Space</a>
+      <a href="#reservation" class="nav-cta">Reserve</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-content reveal">
+    <div class="eyebrow">ALGIERS · ALGERIA</div>
+    <h1>TASTE.<br>CULTURE.<br><span>REIMAGINED.</span></h1>
+    <p class="hero-ar ar">نكهات جزائرية، برؤية عصرية.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#reservation">Reserve a Table</a>
+      <a class="btn ghost" href="#menu">Explore Menu</a>
+    </div>
+  </div>
+  <div class="container hero-meta">
+    <span>MODERN ALGERIAN CUISINE</span>
+    <span class="scroll">SCROLL <i></i></span>
+  </div>
+</section>
+
+<section class="statement" id="story">
+  <div class="container statement-grid reveal">
+    <div>
+      <div class="eyebrow">OUR STORY</div>
+      <div class="statement-big">MORE THAN<br>A <span>MEAL.</span></div>
+    </div>
+    <div class="statement-text ar">
+      <p><strong>رحلة عبر النكهات الجزائرية.</strong></p>
+      <p>في ZIRI نأخذ وصفات مستوحاة من المطبخ الجزائري ونقدمها بروح معاصرة، مع احترام المكونات، التفاصيل، وذاكرة المكان.</p>
+      <p>كل طبق يحكي جزءًا من الثقافة، وكل زيارة مصممة لتكون تجربة تتذكرها.</p>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="container reveal">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">THE MENU</div>
+        <h2 class="section-title">TASTE <span>THE</span><br>STORY.</h2>
+      </div>
+      <p class="section-intro ar">قائمة تتغير مع الموسم.</p>
+    </div>
+    <div class="menu-tabs">
+      <button class="tab active" data-filter="all">All</button>
+      <button class="tab" data-filter="starter">Starters</button>
+      <button class="tab" data-filter="main">Main Course</button>
+      <button class="tab" data-filter="dessert">Desserts</button>
+      <button class="tab" data-filter="drink">Drinks</button>
+    </div>
+    <div class="menu-grid">
+      <!-- Starters -->
+      <article class="menu-item" data-cat="starter">
+        <div>
+          <div class="menu-name">Shorba</div>
+          <div class="menu-desc ar">شوربة تقليدية متبلة.</div>
+        </div>
+        <div class="price">500 DA</div>
+      </article>
+      <article class="menu-item" data-cat="starter">
+        <div>
+          <div class="menu-name">Mtewem</div>
+          <div class="menu-desc ar">مثوم جزائري أصيل.</div>
+        </div>
+        <div class="price">550 DA</div>
+      </article>
+      <article class="menu-item" data-cat="starter">
+        <div>
+          <div class="menu-name">Tadjine Zitoune</div>
+          <div class="menu-desc ar">طاجين زيتون بلمسة معاصرة.</div>
+        </div>
+        <div class="price">400 DA</div>
+      </article>
+      <article class="menu-item" data-cat="starter">
+        <div>
+          <div class="menu-name">La Soupe</div>
+          <div class="menu-desc ar">حساء خضار طازج.</div>
+        </div>
+        <div class="price">500 DA</div>
+      </article>
+
+      <!-- Main Course -->
+      <article class="menu-item" data-cat="main">
+        <div>
+          <div class="menu-name">Couscous</div>
+          <div class="menu-desc ar">كسكس تقليدي.</div>
+        </div>
+        <div class="price">500 DA</div>
+      </article>
+      <article class="menu-item" data-cat="main">
+        <div>
+          <div class="menu-name">Rechta</div>
+          <div class="menu-desc ar">رشتة جزائرية بالدجاج والمرق الأبيض.</div>
+        </div>
+        <div class="price">550 DA</div>
+      </article>
+      <article class="menu-item" data-cat="main">
+        <div>
+          <div class="menu-name">Chekhchokha</div>
+          <div class="menu-desc ar">شخشوخة تقليدية متبلة.</div>
+        </div>
+        <div class="price">500 DA</div>
+      </article>
+      <article class="menu-item" data-cat="main">
+        <div>
+          <div class="menu-name">Poisson</div>
+          <div class="menu-desc ar">سمك طازج - السعر حسب الطلب.</div>
+        </div>
+        <div class="price">Selon المكونات</div>
+      </article>
+      <article class="menu-item" data-cat="main">
+        <div>
+          <div class="menu-name">Steak</div>
+          <div class="menu-desc ar">شريحة لحم مشوية.</div>
+        </div>
+        <div class="price">600 DA</div>
+      </article>
+      <article class="menu-item" data-cat="main">
+        <div>
+          <div class="menu-name">Roasted Chicken</div>
+          <div class="menu-desc ar">دجاج محمر ومتبل.</div>
+        </div>
+        <div class="price">1,600 DA</div>
+      </article>
+
+      <!-- Desserts -->
+      <article class="menu-item" data-cat="dessert">
+        <div>
+          <div class="menu-name">Baqlawa</div>
+          <div class="menu-desc ar">بقلاوة تقليدية بالمكسرات والعسل.</div>
+        </div>
+        <div class="price">200 DA</div>
+      </article>
+      <article class="menu-item" data-cat="dessert">
+        <div>
+          <div class="menu-name">Trompe l'oeil</div>
+          <div class="menu-desc ar">حلوى مبتكرة بتصميم وهم بصرى.</div>
+        </div>
+        <div class="price">650 DA</div>
+      </article>
+      <article class="menu-item" data-cat="dessert">
+        <div>
+          <div class="menu-name">Tiramisu</div>
+          <div class="menu-desc ar">تيراميسو كلاسيكي دافئ.</div>
+        </div>
+        <div class="price">350 DA</div>
+      </article>
+      <article class="menu-item" data-cat="dessert">
+        <div>
+          <div class="menu-name">Mousse au chocolat</div>
+          <div class="menu-desc ar">موس الشوكولاتة الغنية.</div>
+        </div>
+        <div class="price">250 DA</div>
+      </article>
+      <article class="menu-item" data-cat="dessert">
+        <div>
+          <div class="menu-name">Gâteau au fraise</div>
+          <div class="menu-desc ar">كعكة الفراولة الطازجة.</div>
+        </div>
+        <div class="price">250 DA</div>
+      </article>
+      <article class="menu-item" data-cat="dessert">
+        <div>
+          <div class="menu-name">Gâteau au chocolat</div>
+          <div class="menu-desc ar">كعكة الشوكولاتة.</div>
+        </div>
+        <div class="price">250 DA</div>
+      </article>
+
+      <!-- Drinks -->
+      <article class="menu-item" data-cat="drink">
+        <div>
+          <div class="menu-name">Hamoud (1L)</div>
+          <div class="menu-desc ar">مشروب حمود بوعلام 1 لتر.</div>
+        </div>
+        <div class="price">150 DA</div>
+      </article>
+      <article class="menu-item" data-cat="drink">
+        <div>
+          <div class="menu-name">Coca Cola (1L)</div>
+          <div class="menu-desc ar">كوكا كولا 1 لتر.</div>
+        </div>
+        <div class="price">150 DA</div>
+      </article>
+      <article class="menu-item" data-cat="drink">
+        <div>
+          <div class="menu-name">Fanta (1L)</div>
+          <div class="menu-desc ar">فانتا 1 لتر.</div>
+        </div>
+        <div class="price">150 DA</div>
+      </article>
+      <article class="menu-item" data-cat="drink">
+        <div>
+          <div class="menu-name">Ice Tea</div>
+          <div class="menu-desc ar">شاي مثلج منعش.</div>
+        </div>
+        <div class="price">120 DA</div>
+      </article>
+      <article class="menu-item" data-cat="drink">
+        <div>
+          <div class="menu-name">Jus Naturel</div>
+          <div class="menu-desc ar">عصير طبيعي طازج.</div>
+        </div>
+        <div class="price">200 DA</div>
+      </article>
+      <article class="menu-item" data-cat="drink">
+        <div>
+          <div class="menu-name">Rouiba</div>
+          <div class="menu-desc ar">عصير رويبة.</div>
+        </div>
+        <div class="price">180 DA</div>
+      </article>
+      <article class="menu-item" data-cat="drink">
+        <div>
+          <div class="menu-name">Tchina</div>
+          <div class="menu-desc ar">عصير تشينا.</div>
+        </div>
+        <div class="price">160 DA</div>
+      </article>
+      <article class="menu-item" data-cat="drink">
+        <div>
+          <div class="menu-name">Ifruit</div>
+          <div class="menu-desc ar">مشروب آيفروت.</div>
+        </div>
+        <div class="price">130 DA</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="experience-box reveal">
+      <div class="eyebrow">THE ZIRI EXPERIENCE</div>
+      <h2>FROM TRADITION<br>TO <span class="gold">TABLE.</span></h2>
+      <p class="ar">من الوصفة إلى التقديم، نهتم بكل تفصيلة. مكونات أصيلة، تقنيات حديثة، وأجواء تمنح كل زيارة طابعها الخاص.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container reveal">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">A GLIMPSE</div>
+        <h2 class="section-title">THE <span>TABLE.</span></h2>
+      </div>
+      <p class="section-intro ar">الطعام جزء من التجربة. الإضاءة، الموسيقى، التفاصيل والطاولة كلها تحكي القصة.</p>
+    </div>
+    <div class="gallery">
+      <!-- 1. Signature Dish -->
+      <div class="gallery-item">
+        <img src="couscous ziri.jfif" alt="Signature Dish" class="gallery-img" loading="lazy" decoding="async">
+        <span class="gallery-label">Signature Dish</span>
+      </div>
+      <!-- 2. The Table -->
+      <div class="gallery-item">
+        <img src="the table.jfif" alt="The Table" class="gallery-img" loading="lazy" decoding="async">
+        <span class="gallery-label">The Table</span>
+      </div>
+      <!-- 3. Algerian Flavors -->
+      <div class="gallery-item">
+        <img src="hmis.jfif" alt="Algerian Flavors" class="gallery-img" loading="lazy" decoding="async">
+        <span class="gallery-label">Algerian Flavors</span>
+      </div>
+      <!-- 4. Tea Ritual -->
+      <div class="gallery-item">
+        <img src="tea.jfif" alt="Tea Ritual" class="gallery-img" loading="lazy" decoding="async">
+        <span class="gallery-label">Tea Ritual</span>
+      </div>
+      <!-- 5. Dessert -->
+      <div class="gallery-item">
+        <img src="baqlawa.jfif" alt="Dessert" class="gallery-img" loading="lazy" decoding="async">
+        <span class="gallery-label">Dessert</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="space">
+  <div class="container space reveal">
+    <div class="space-visual">
+      <img src="brand pic.png" alt="ZIRI Space" class="space-img" loading="lazy" decoding="async">
+    </div>
+    <div class="space-copy">
+      <div class="eyebrow">THE SPACE</div>
+      <h2>DESIGNED FOR<br>THE <span class="gold">EXPERIENCE.</span></h2>
+      <p class="ar">مساحة دافئة تستلهم الأقواس، الحجر، النحاس والألوان الترابية من العمارة الجزائرية، لكن بصياغة عصرية وهادئة.</p>
+      <br>
+      <p>ALGIERS · ALGERIA<br>12:00 — 23:30 · MON — SUN</p>
+    </div>
+  </div>
+</section>
+
+<section class="reservation" id="reservation">
+  <div class="container reserve-grid reveal">
+    <div class="reserve-copy">
+      <div class="eyebrow">RESERVATION</div>
+      <h2>YOUR TABLE<br>IS <span class="gold">WAITING.</span></h2>
+      <p class="ar">اختر التاريخ والوقت وأرسل طلب الحجز WhatsApp تلقائيًا.</p>
+    </div>
+    <form id="reserveForm">
+      <div class="field">
+        <label for="name">Name / الاسم</label>
+        <input id="name" required placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="phone">Phone / الهاتف</label>
+        <input id="phone" required placeholder="05 XX XX XX XX">
+      </div>
+      <div class="field">
+        <label for="guests">Guests / الأشخاص</label>
+        <select id="guests">
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="date">Date / التاريخ</label>
+        <input id="date" type="date" required>
+      </div>
+      <div class="field">
+        <label for="time">Time / الوقت</label>
+        <input id="time" type="time" required>
+      </div>
+      <div class="field">
+        <label for="request">Special Request / ملاحظة</label>
+        <input id="request" placeholder="Optional">
+      </div>
+      <div class="field full">
+        <button class="btn primary" type="submit">Prepare Reservation </button>
+      </div>
+      <div class="form-msg" id="formMsg"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="eyebrow">ZIRI · ALGIERS</div>
+        <div class="footer-slogan">TASTE. CULTURE. <span class="gold">REIMAGINED.</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="#menu">Menu</a>
+        <a href="#reservation">Reserve</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ZIRI — MODERN ALGERIAN CUISINE</span>
+      <span>CONCEPT PROJECT BY CODIVA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('header');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+    ticking = false;
+  });
+}, { passive: true });
+
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.onclick = () => {
+  navLinks.classList.toggle('open');
+  menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+};
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.onclick = () => {
+    navLinks.classList.remove('open');
+    menuBtn.textContent = '☰';
+  };
+});
+
+const tabs = document.querySelectorAll('.tab');
+const items = document.querySelectorAll('.menu-item');
+
+tabs.forEach(tab => {
+  tab.onclick = () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    items.forEach(item => {
+      item.style.display = (filter === 'all' || item.dataset.cat === filter) ? 'flex' : 'none';
+    });
+  };
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+  img.addEventListener('error', () => {
+    img.style.display = 'none';
+  }, { once: true });
+});
+
+const dateInput = document.getElementById('date');
+if (dateInput) {
+  dateInput.min = new Date().toISOString().split('T')[0];
+}
+
+document.getElementById('reserveForm').onsubmit = e => {
+  e.preventDefault();
+  const n = document.getElementById('name').value.trim();
+  const p = document.getElementById('phone').value.trim();
+  const g = document.getElementById('guests').value;
+  const d = document.getElementById('date').value;
+  const t = document.getElementById('time').value;
+  const r = document.getElementById('request').value.trim();
+  
+  const number = '213555555555';
+  const text = `Hello ZIRI 👋
+I would like to reserve a table.
+
+Name: ${n}
+Phone: ${p}
+Guests: ${g}
+Date: ${d}
+Time: ${t}
+Special request: ${r || 'None'}`;
+  
+  const msg = document.getElementById('formMsg');
+  msg.style.display = 'block';
+  msg.textContent = 'تم تجهيز الحجز. سيتم تحويلك إلى WhatsApp…';
+  
+  window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`, '_blank');
+};
+</script>
+</body>
+</html>
